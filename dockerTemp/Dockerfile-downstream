@@ -1,0 +1,5 @@
+FROM localhost:5000/upstreamimage:latest
+
+RUN echo 'downstream rebuild' >> /tmp/imagever.txt
+CMD ["cat","/tmp/imagever.txt"]
+

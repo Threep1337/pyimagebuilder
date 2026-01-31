@@ -8,6 +8,8 @@ Make sure to use the venv:
 
 `source venv/bin/activate`
 
+I will need to freeze the python requirements later
+
 ## Testing notes
 
 To easily test this, create your own repo to act as the upstream repo, you can do this by using a docker image:
@@ -59,3 +61,14 @@ Inspect the remote image:
 Note that if the image uses a manifest I think I will need to use the `docker manifest inspect` commands instead.
 
 It looks like there is also a way with the repo api, look into that more.
+
+Rebuild the downstream image:
+
+`docker build -t localhost:5000/downstream:latest -f Dockerfile-downstream .`
+
+Run the downstream image:
+`docker run localhost:5000/downstream:latest`
+
+Push the downstream image:
+
+`docker image push localhost:5000/downstream:latest`
