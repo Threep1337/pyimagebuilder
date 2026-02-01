@@ -5,6 +5,19 @@
 import docker
 
 
+# TODO:
+# Add labels to the downstream image with the upstream image digest, and check the labels on the downstream image
+#    LABEL org.opencontainers.image.base.digest="sha256:..."
+# Make the config file be read in from a json file
+# Use the python logging module rather than print messages
+# Do an image rebuild and push to a registry
+# Log the records at first just to the screen, but later make it log records to a DB
+# Add error handling for when there is no downstream image currently in the registry that matches the upstream tag
+# Make a file that stores variables .env for secure ones that isnt in the repo, maybe another for general config
+# Add some unit tests eventually
+# Allow for selective rebuilds somehow, maybe via args, so rather than having to go through all images in the config, allow overriding
+# The first goal is going to be just to have a simple, hardcoded, auto rebuilder and pusher, hardcode even the docker file for now
+
 def main():
       
     #Quick and dirty image monitoring data, later this all needs to be changed to using a json config file or DB records:
